@@ -13,6 +13,10 @@ renderApp = (res) => res.sendFile(path.join(__dirname, '../client/dist/client/ap
 renderLogin = (res, message='') => res.render(path.join(__dirname, '../public/login.ejs'), {message});
 
 module.exports = function(app) {
+  app.get('/logout', (req, res) => {
+    req.session.user = null;
+    res.redirect('/');    
+  });
   // route for login page [GET]
   app.get('/login', (req, res) => {
     if(req.session.user){

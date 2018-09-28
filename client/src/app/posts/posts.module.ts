@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router';
-
-import { HeaderComponent } from './components/header';
+import { PostsRoutingModule } from './posts.router';
+import { PostsListComponent } from './components';
 const COMPONENTS = [
-  HeaderComponent
+  PostsListComponent
 ];
 
 @NgModule({
   imports: [
     FormsModule,
     NgbModule,
-    RouterModule
+    PostsRoutingModule
   ],
   declarations: COMPONENTS,
   exports: COMPONENTS,
@@ -21,4 +20,4 @@ const COMPONENTS = [
   entryComponents: [
   ]
 })
-export class HeaderModule { }
+export class PostsModule { }

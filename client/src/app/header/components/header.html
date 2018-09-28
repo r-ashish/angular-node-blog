@@ -1,3 +1,14 @@
-<div class="app-header">
-  <h2>Welcome to Edufied Blog</h2>
+<div class="app-header row">
+  <div class="row branding">
+    <div class="logo">Edufied</div>
+    <h5>Edufied Blog</h5>
+  </div>
+  <div style="flex: 1">
+      <div class="float-right">
+          <button class="create-btn btn btn-primary" [routerLink]="['/posts', 'create']">
+            Create new Post
+          </button>
+          <a href="/logout">Logout</a>
+        </div>
+  </div>
 </div>

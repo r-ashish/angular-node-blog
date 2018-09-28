@@ -1,27 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
-// import { PostsModule } from './posts/posts.module';
+import { PostsListComponent } from './components';
 
 const routes: Routes = [
   {
     path: '',
-    // redirectTo: 'posts',
+    component: PostsListComponent,
     children: [
-      { path: '', redirectTo: 'posts', pathMatch: 'full' },
-      { path: 'posts', loadChildren: './posts/posts.module#PostsModule' }
+      // { path: '', redirectTo: 'posts', pathMatch: 'full' },
+      // { path: 'posts', component: ProjectSummaryComponent }
     ]
   },
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forChild(routes) ],
   exports: [ RouterModule ],
   providers: [
     {provide: APP_BASE_HREF, useFactory : () => location.pathname },
   ]
 })
 
-export class AppRoutingModule {
+export class PostsRoutingModule {
 
 }

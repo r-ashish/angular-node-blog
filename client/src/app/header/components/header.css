@@ -36,5 +36,8 @@
 
 .app-header .create-btn {
   margin-right: 20px;
-  outline: none;
+}
+
+.app-header .create-btn:focus {
+  outline: none !important;
 }

@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
 
 export class PostCreateComponent {
   public postData;
+  public loading;
+  public error;
 
   constructor (
     private http: HttpClient,
@@ -20,14 +22,21 @@ export class PostCreateComponent {
       image: null,
       date: ''
     };
+    this.loading = false;
+    this.error = false;
   }
 
   onSubmit() {
     console.log(this.postData);
+    this.loading = true;
+    this.error = false;
     this.http.post('/api/posts/', this.postData).subscribe(() => {
       this.router.navigateByUrl('/posts');
+      this.loading = false;
     }, (error) => {
       console.log(error);
+      this.loading = false;
+      this.error = true;
     });
   }
 

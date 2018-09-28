@@ -42,6 +42,20 @@
           aria-describedby="publishDateHelp" placeholder="Publish date">
         <small id="publishDateHelp" class="form-text text-muted">Publish date of the article.</small>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      <div style="display: flex">
+        <button
+          type="submit" class="btn btn-primary"
+          [disabled]="loading" (click)="onSubmit()"
+          style="margin-right: 30px">
+          Submit
+        </button>
+        <div class="loader-main" *ngIf="loading">
+            <div class="loader"></div>
+            <span style="margin: 10px; font-size: 18px">Creating post...</span>
+        </div>
+        <div *ngIf="error">
+          Couldn't create post, please try again..
+        </div>
+      </div>
     </form>
 </div>

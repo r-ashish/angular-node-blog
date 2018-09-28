@@ -4,6 +4,7 @@
   "description": "mean-test",
   "main": "server.js",
   "scripts": {
+    "server": "nodemon server.js --ignore client/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ashish Ranjan <ashishranjan2912@gmail.com>",

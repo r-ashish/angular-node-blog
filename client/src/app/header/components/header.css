@@ -25,10 +25,16 @@
   background: #ff6666;
 }
 
+.branding {
+  cursor: pointer;
+  outline: none;
+}
+
 .branding > h5 {
   margin-left: 10px;
 }
 
 .app-header .create-btn {
-  margin-right: 10px;
+  margin-right: 20px;
+  outline: none;
 }

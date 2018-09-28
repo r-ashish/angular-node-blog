@@ -1,0 +1,47 @@
+<div class="container">
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          [(ngModel)]="postData.title"
+          type="text"
+          autocomplete="off"
+          class="form-control"
+          id="title"
+          name="title"
+          aria-describedby="titleHelp"
+          placeholder="Enter title">
+        <small id="titleHelp" class="form-text text-muted">Title of the artice.</small>
+      </div>
+      <div class="form-group">
+        <label for="image">Display image</label>
+        <input
+          (change)="onFileChange($event)"
+          type="file" accept="image/*"
+          class="form-control-file"
+          id="image"
+          aria-describedby="imageHelp" placeholder="Image">
+        <small id="imageHelp" class="form-text text-muted">Display image for the article.</small>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          [(ngModel)]="postData.description"
+          type="text"
+          class="form-control"
+          id="description"
+          name="description"
+          aria-describedby="descriptionHelp"
+          placeholder="Enter description"
+          rows="5"></textarea>
+        <small id="descriptionHelp" class="form-text text-muted">Description of the artice.</small>
+      </div>
+      <div class="form-group">
+        <label for="date">Publish date</label>
+        <input type="date" [(ngModel)]="postData.date" class="form-control" id="date" name="date"
+          aria-describedby="publishDateHelp" placeholder="Publish date">
+        <small id="publishDateHelp" class="form-text text-muted">Publish date of the article.</small>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    </form>
+</div>

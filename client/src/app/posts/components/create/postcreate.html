@@ -33,6 +33,10 @@
         <small id="imageHelp" class="form-text text-muted">
           Display image for the article. {{new?'': 'Uploading a new file will override the previously uploaded image, leave it empty to keep the image unchanged.'}}
         </small>
+        <div *ngIf="!new && postData.image" style="margin-top: 20px">
+          <h6>Previously uploaded image:</h6>
+          <img style="margin-top: 5px" height="100" width="auto" [src]="postData.image"/>
+        </div>
       </div>
       <div class="form-group">
         <label for="description">Description</label>

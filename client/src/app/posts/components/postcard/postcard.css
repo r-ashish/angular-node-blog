@@ -42,7 +42,11 @@ p.post-date {
   padding: 0 20px;
 }
 
-.post-card > .description {
+.post-card .description {
+  margin-top: 10px;
   padding: 5px 20px;
-  margin-top: 5px;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

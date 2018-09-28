@@ -11,8 +11,4 @@ export class PostCardComponent {
   constructor(
   ) {
   }
-
-  getDescription() {
-    return (this.post.description.length > 230) ? this.post.description.substr(0, 230) + '...' : this.post.description;
-  }
 }

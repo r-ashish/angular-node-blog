@@ -1,9 +1,11 @@
-var express = require('express');
-var session = require('express-session');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const dbConfig = require('./config/database.config.js');
 
-var app = express();
+const app = express();
 // set view engine as ejs
 app.set('view engine', 'ejs');
 // set static directories
@@ -18,5 +20,16 @@ app.use(session({secret: "somesuperlongsecretkey"}));
 
 // include routes
 require('./routes/routes')(app);
+
+mongoose.Promise = global.Promise;
+
+// Connecting to the database
+mongoose.connect(dbConfig.url)
+.then(() => {
+    console.log("Successfully connected to the database");    
+}).catch(err => {
+    console.log('Could not connect to the database. Exiting now...');
+    process.exit();
+});
 app.listen(4000);
 console.log('Listening on port 4000...');

@@ -2,3 +2,4 @@
 @import "app/app.component.css";
 @import "app/header/components/header.css";
 @import "app/posts/components/list/postslist.css";
+@import "app/posts/components/postcard/postcard.css";

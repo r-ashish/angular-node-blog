@@ -12,3 +12,11 @@ exports.createPost = (req, res) => {
     res.send(data);
   });
 }
+
+exports.getPosts = (req, res) => {
+  PostModel.find()
+  .exec()
+  .then(posts => {
+    res.send(posts);
+  });
+}

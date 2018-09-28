@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PostsListComponent, PostCreateComponent } from './components';
+import { PostsListComponent, PostCreateComponent, PostCardComponent } from './components';
 import { CommonModule } from '@angular/common';
 
 const COMPONENTS = [
   PostsListComponent,
   PostCreateComponent,
+  PostCardComponent
 ];
 
 @NgModule({

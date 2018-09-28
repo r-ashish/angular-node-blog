@@ -23,20 +23,29 @@ export class PostCreateComponent {
       date: ''
     };
     this.loading = false;
-    this.error = false;
+    this.error = '';
   }
 
   onSubmit() {
-    console.log(this.postData);
+    if (this.postData.title === '') {
+      this.error = 'Please enter title!';
+      return;
+    } else if (this.postData.description === '') {
+      this.error = 'Please enter description!';
+      return;
+    } else if (this.postData.date === '') {
+      this.error = 'Please enter publish date!';
+      return;
+    }
     this.loading = true;
-    this.error = false;
+    this.error = '';
     this.http.post('/api/posts/', this.postData).subscribe(() => {
       this.router.navigateByUrl('/posts');
       this.loading = false;
     }, (error) => {
       console.log(error);
       this.loading = false;
-      this.error = true;
+      this.error = 'Couldn\'t create post, please try again..';
     });
   }
 
@@ -46,9 +55,7 @@ export class PostCreateComponent {
       const [file] = $event.target.files;
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.postData.patchValue({
-          file: reader.result
-        });
+        this.postData.image = reader.result;
       };
     }
   }

@@ -10,12 +10,16 @@ export class PostCardComponent {
   @Input() post;
 
   constructor(
-    // private route: ActivatedRoute
     private router: Router
   ) {
   }
 
   openPost() {
     this.router.navigate([`posts/view/${this.post._id}`]);
+  }
+
+  editPost($event) {
+    this.router.navigate([`posts/edit/${this.post._id}`]);
+    $event.stopPropagation();
   }
 }

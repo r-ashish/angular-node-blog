@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-create',
@@ -11,11 +11,16 @@ export class PostCreateComponent {
   public postData;
   public loading;
   public error;
+  public new;
+  public loadingNew;
+  public errorNew;
 
   constructor (
+    private route: ActivatedRoute,
     private http: HttpClient,
     private router: Router
   ) {
+    this.new = this.route.snapshot.params.postId ? false : true;
     this.postData = {
       title: '',
       description: '',
@@ -24,6 +29,20 @@ export class PostCreateComponent {
     };
     this.loading = false;
     this.error = '';
+    if (!this.new) {
+      this.loadPost();
+    }
+  }
+
+  loadPost() {
+    this.loadingNew = true;
+    this.errorNew = '';
+    this.http.get(`/api/posts/${this.route.snapshot.params.postId}`).subscribe(post => {
+      this.postData = post;
+      this.loadingNew = false;
+    }, () => {
+      this.errorNew = 'Couldn\'t load post details, try again later...';
+    });
   }
 
   onSubmit() {

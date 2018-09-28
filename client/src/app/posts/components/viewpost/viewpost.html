@@ -4,6 +4,9 @@
     <div class="backdrop"></div>
     <h5 class="post-title">{{post.title}}</h5>
     <p class="post-date">{{post.date}}</p>
+    <div style="position: absolute; top: 0; right: 0; margin: 10px;" (click)="editPost()">
+        <div class="post-action-button"><i class="fa fa-pencil" style="font-size: 18px;"></i></div>
+    </div>
   </div>
   <div class="description">
       {{post.description}}

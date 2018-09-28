@@ -8,6 +8,12 @@ exports.createPost = (req, res) => {
     image: req.body.image,
     date: req.body.date,
   }
+  if (req.body._id) {
+    Post.updatePost(req.body._id, postData).then((data) => {
+      res.send(data);
+    });
+    return;
+  }
   Post.createPost(postData).then((data) => {
     res.send(data);
   });

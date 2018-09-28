@@ -68,3 +68,20 @@ p.post-date {
   padding: 10px 25px;
   text-align: justify;
 }
+.post-action-button {
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.3);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  font-size: 24px;
+  background: #e40707;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.post-action-button:hover {
+  box-shadow: 0 16px 24px 0 rgba(0,0,0,0.4);
+}

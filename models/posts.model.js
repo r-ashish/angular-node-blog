@@ -16,6 +16,10 @@ class Post {
     var post = new PostModel (postData);
     return post.save();
   }
+
+  static updatePost(id, postData) {
+    return PostModel.findOneAndUpdate({_id: id}, postData, {new: false}).exec()
+  }
 }
 
 module.exports = {

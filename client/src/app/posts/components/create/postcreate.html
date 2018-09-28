@@ -1,5 +1,14 @@
 <div class="container">
-    <form>
+    <div *ngIf="!new">
+        <div class="loader-main" *ngIf="loadingNew">
+            <div class="loader"></div>
+            <span style="margin: 10px; font-size: 18px">Loading post details...</span>
+        </div>
+        <div *ngIf="errorNew">
+            {{errorNew}}
+        </div>
+    </div>
+    <form *ngIf="new || (!new && !loadingNew && !errorNew)">
       <div class="form-group">
         <label for="title">Title</label>
         <input
@@ -21,7 +30,9 @@
           class="form-control-file"
           id="image"
           aria-describedby="imageHelp" placeholder="Image">
-        <small id="imageHelp" class="form-text text-muted">Display image for the article.</small>
+        <small id="imageHelp" class="form-text text-muted">
+          Display image for the article. {{new?'': 'Uploading a new file will override the previously uploaded image, leave it empty to keep the image unchanged.'}}
+        </small>
       </div>
       <div class="form-group">
         <label for="description">Description</label>

@@ -1,6 +1,6 @@
-import { Component } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-post-view',
@@ -13,7 +13,8 @@ export class PostViewComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     this.loadPost();
   }
@@ -27,5 +28,9 @@ export class PostViewComponent {
     }, () => {
       this.error = 'Couldn\'t load post details, try again later...';
     });
+  }
+
+  editPost() {
+    this.router.navigate([`posts/edit/${this.post._id}`]);
   }
 }

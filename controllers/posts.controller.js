@@ -20,3 +20,11 @@ exports.getPosts = (req, res) => {
     res.send(posts);
   });
 }
+
+exports.getPost = (req, res) => {
+  PostModel.findOne({_id: req.params.postId})
+  .exec()
+  .then(posts => {
+    res.send(posts);
+  });
+}

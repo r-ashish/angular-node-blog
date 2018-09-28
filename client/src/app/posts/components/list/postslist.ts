@@ -20,7 +20,6 @@ export class PostsListComponent {
   loadPosts() {
     this.loading = true;
     this.http.get('/api/posts').subscribe((posts) => {
-      console.log(posts);
       this.posts = posts;
       this.loading = false;
     });

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
-import { PostCreateComponent, PostsListComponent } from './posts/components';
+import { PostCreateComponent, PostsListComponent, PostViewComponent } from './posts/components';
 import { PostsModule } from './posts/posts.module';
 
 const routes: Routes = [
@@ -14,7 +14,9 @@ const routes: Routes = [
     path: 'posts',
     children: [
       { path: '', component: PostsListComponent, pathMatch: 'full'},
-      { path: 'create', component: PostCreateComponent }
+      { path: 'create', component: PostCreateComponent },
+      { path: 'edit/:postId', component: PostCreateComponent },
+      { path: 'view/:postId', component: PostViewComponent }
     ]
   },
 ];

@@ -1,12 +1,13 @@
 .app-header {
   background: white;
-  /* text-align: center; */
-  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.4);
-}
-
-.app-header {
   margin: 0;
   padding: 15px 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.4);
+  z-index: 999;
 }
 
 .app-header > .branding {

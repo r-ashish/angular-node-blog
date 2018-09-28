@@ -50,3 +50,21 @@ p.post-date {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.view-post-container {
+  background: white;
+  height: 100vh;
+  padding: 0;
+}
+
+.view-post-container h5.post-title {
+  font-weight: 500 !important;
+  font-size: 1.4rem;
+}
+
+.view-post-container .description {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px 25px;
+  text-align: justify;
+}

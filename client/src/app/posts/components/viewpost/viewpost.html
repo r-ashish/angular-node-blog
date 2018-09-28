@@ -1,0 +1,16 @@
+<div class="container view-post-container" *ngIf="!loading && post">
+  <div style="position: relative;">
+    <img [src]="post.image" height="250px" width="100%" style="object-fit: none; object-position: center;"/>
+    <div class="backdrop"></div>
+    <h5 class="post-title">{{post.title}}</h5>
+    <p class="post-date">{{post.date}}</p>
+  </div>
+  <div class="description">
+      {{post.description}}
+  </div>
+</div>
+<div *ngIf="error" style="text-align: center">{{error}}</div>
+<div class="loader-main" *ngIf="loading && !error">
+    <div class="loader"></div>
+    <span style="margin: 10px; font-size: 18px">Loading post details...</span>
+</div>

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-card',
@@ -9,6 +10,12 @@ export class PostCardComponent {
   @Input() post;
 
   constructor(
+    // private route: ActivatedRoute
+    private router: Router
   ) {
+  }
+
+  openPost() {
+    this.router.navigate([`posts/view/${this.post._id}`]);
   }
 }
